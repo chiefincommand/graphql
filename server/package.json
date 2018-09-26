@@ -4,7 +4,8 @@
   "description": "Graphql test app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node app"
   },
   "author": "Someone you don't know",
   "license": "ISC",
