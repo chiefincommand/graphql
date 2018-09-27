@@ -1,12 +1,23 @@
 const express = require('express');
 const graphqlExpress = require('express-graphql');
 const schema = require('./schema/schema');
+const mongoose = require('mongoose');
 const PORT = 4000;
 const app = express();
 
+
+const username = 'graphql-user';
+const password = 'qaB4live';
+const databaseName = 'graphql';
+//connect to mlab DB. to setup a db go to: https://mlab.com , sign up for an account and create a sandbox
+mongoose.connect(`mongodb://${username}:${password}@ds115931.mlab.com:15931/${databaseName}`);
+mongoose.connection.once('open', () => {
+   console.log('connected to database')
+});
+
 app.use('/graphql', graphqlExpress({
     schema,
-    graphiql: true
+    graphiql: true //to launch graphql interactive interface
 }));
 
 
