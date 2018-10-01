@@ -18,3 +18,12 @@ Files:
 schema.js => contains GraphQL schema
 app.js => contains server config
 
+Client
+Go to client folder
+Run "npm install"
+Run "npm start"
+
+Go to localhost:3000 and view the react app
+
+
+
