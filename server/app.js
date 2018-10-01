@@ -2,9 +2,11 @@ const express = require('express');
 const graphqlExpress = require('express-graphql');
 const schema = require('./schema/schema');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const PORT = 4000;
 const app = express();
 
+app.use(cors());
 
 const username = 'graphql-user';
 const password = 'qaB4live';
@@ -19,6 +21,9 @@ app.use('/graphql', graphqlExpress({
     schema,
     graphiql: true //to launch graphql interactive interface
 }));
+
+//allow cross origin requests
+
 
 
 app.listen(PORT, () => {
