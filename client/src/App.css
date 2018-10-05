@@ -23,11 +23,15 @@
     font-size: 1.5em;
 }
 
-.book-list-component {
+.nav-link {
+    color: white;
+}
+
+.book-list-component, .author-list-component {
     width: 50%;
 }
 
-.add-book-component {
+.add-book-component, .add-author-component {
     width: 50%;
 }
 
@@ -48,3 +52,20 @@
     padding: 0 20px;
 }
 
+.book-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-details > div {
+    display: flex;
+}
+
+.home-component {
+    display: flex;
+}
+
+.home-component h2 {
+    color: #222222;
+    padding: 20px;
+}

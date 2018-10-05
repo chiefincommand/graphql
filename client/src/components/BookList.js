@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {graphql} from 'react-apollo';
 import {getBooksQuery} from '../queries/Book';
+import {Link } from "react-router-dom";
 
 // import {getBooksQuery} from '../services/QueryService';
 
@@ -12,7 +13,7 @@ class BookList extends Component {
             return (<span>Loading books...</span>)
         } else if (data.books) {
             return data.books.map(book => {
-                return (<li key={book.id}>{book.name}</li>);
+                return (<li key={book.id}><Link to={`/books/${book.id}`}>{book.name}</Link></li>);
             })
         }
         return (<div className="app-msg">No books were found</div>);
@@ -26,15 +27,11 @@ class BookList extends Component {
                 <ul className="book-list">
                     {this.displayBooks()}
                 </ul>
+                <Link to="/books/add" >Add new book</Link>
             </div>
         );
     }
 }
 
-
-
-// getBookList().then((result) => {
-//     console.log('result', result);
-// });
 
 export default graphql(getBooksQuery)(BookList);

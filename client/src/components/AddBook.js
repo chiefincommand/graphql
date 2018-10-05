@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {graphql, compose} from 'react-apollo';
 import {getAuthorsQuery} from '../queries/Author';
-import {addBookMutation, getBooksQuery} from '../queries/Book';
+import {addBookMutation/*, getBooksQuery*/} from '../queries/Book';
 
 
 class AddBook extends Component {
@@ -33,12 +33,17 @@ class AddBook extends Component {
 
     saveBook(e) {
         e.preventDefault();
+        console.log(this.props.addBookMutation);
+
         this.props.addBookMutation({
-            variables: this.state,
-            refetchQueries: [
-                {query: getBooksQuery}
-            ]
-        });
+            variables: this.state
+            //,
+            // refetchQueries: [
+            //     {query: getBooksQuery}
+            // ]
+        }).then(() => {
+            this.props.history.push('/books')
+        })
 
     }
 
