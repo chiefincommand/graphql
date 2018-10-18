@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 
 const username = 'graphql-user';
-const password = 'qaB4live';
+const password = '';
 const databaseName = 'graphql';
 //connect to mlab DB. to setup a db go to: https://mlab.com , sign up for an account and create a sandbox
 mongoose.connect(`mongodb://${username}:${password}@ds115931.mlab.com:15931/${databaseName}`);
